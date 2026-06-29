@@ -1,0 +1,822 @@
+@import "tailwindcss";
+  
+/* Font Website */
+
+@font-face {
+  font-family: 'Vazir'; 
+  src: url('/font/Vazir-Bold.woff2')format('woff2');
+  font-weight: normal; 
+  font-style: normal;
+  font-display: swap; 
+}
+
+body{
+  font-family: 'Vazir';
+}
+/*End Font Website*/
+
+
+/* nav */
+
+/* Start Navbar Style*/
+.logo img {
+  width: 200px;   /* هر اندازه دلخواه */
+  height: auto;   /* برای حفظ نسبت تصویر */
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 150px;  /* در موبایل کوچکتر */
+  }
+}
+
+.navbar {
+      background-color: white;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background-color 0.3s ease;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-direction: row-reverse;
+      position: relative;
+    }
+.logo {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  overflow: hidden; 
+}
+
+.logo img {
+  height: 80px; 
+  width: auto;
+  user-select: none;
+}
+
+
+    .nav-links,
+    .login {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-links a, .login a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.3s ease, transform 0.2s ease;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover, .login a:hover {
+      color: #06b6d4; 
+      background-color: #f3e8ff;
+      transform: scale(1.05);
+    }
+
+    .login a {
+      font-weight: 700;
+      background-color: #06b6d4;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .login a:hover {
+      background-color: #5b21b6;
+      color: #f3e8ff;
+      transform: scale(1.05);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2.4rem;
+      cursor: pointer;
+      color: #333;
+      z-index: 200;
+      transition: transform 0.4s ease;
+      user-select: none;
+    }
+
+    .hamburger.open {
+      transform: rotate(90deg);
+      color: #06b6d4;
+    }
+
+   /* منوی موبایل */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links,
+  .login {
+    flex-direction: column;
+    gap: 1.5rem;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background: #ffffff; 
+    color: #333;
+    height: 100vh;
+    width: 50%; 
+    padding: 5rem 1.5rem;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 16px 0 0 16px;
+    overflow-y: auto;
+  }
+
+  .nav-links a,
+  .login a {
+    color: #333;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.2rem;
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  .nav-links a:hover {
+    background-color: #f1f1f1;
+    color: #06b6d4;
+    transform: scale(1.05);
+  }
+
+  .login a {
+    background-color: #7c3aed;
+    color: white;
+    font-weight: 700;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .login a:hover {
+    background-color: #5b21b6;
+    transform: scale(1.05);
+  }
+
+  .nav-links.active,
+  .login.active {
+    right: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .nav-links,
+  .login {
+    width: 70%; 
+    padding: 4rem 1rem;
+  }
+
+  .nav-links a,
+  .login a {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .login a {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .hamburger {
+    font-size: 2rem;
+  }
+}
+
+
+.extra-buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.extra-buttons .special-btn,
+.extra-buttons .call-btn {
+  text-align: center;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.special-btn {
+  background-color: #16a34a; 
+  color: white;
+}
+
+.special-btn:hover {
+  background-color: #15803d;
+  transform: scale(1.05);
+}
+
+.call-btn {
+  background-color: #f97316; 
+  color: white;
+}
+
+.call-btn:hover {
+  background-color: #ea580c;
+  transform: scale(1.05);
+}
+
+@media (min-width: 769px) {
+  .extra-buttons {
+    display: none; 
+    
+  }
+  
+}
+
+
+@media (min-width: 770px) {
+  
+  .login a.men{
+    display: none;
+  }
+}
+
+
+
+@media (max-width: 770px) {
+  
+  .login a.men{
+    background-color: white;
+    color: black;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*End Navbar Style*/
+
+
+
+/*Start Header Style*/
+.vt-hero-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* تمام ارتفاع صفحه */
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.vt-hero-title {
+  font-size: 3rem;
+  color: #06b6d4;
+  font-weight: 800;
+  margin: 0;
+  opacity: 0;
+  animation: fadeInText 1.5s forwards ease-out 0.5s;
+}
+
+.vt-hero-subtitle {
+  font-size: 1.5rem;
+  color: #444;
+  font-weight: 500;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeInText 1.5s forwards ease-out 1s;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+
+.vt-button {
+  background-color: #f97316;
+  color: white;
+  padding: 1rem 2.5rem;
+  clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+  text-decoration: none;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+}
+
+.vt-button:hover {
+  background-color: #d43606;
+  transform: scale(1.05);
+}
+
+/*End Header Style*/
+
+
+
+
+/*Start Dashboard Style*/
+     .containerxm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .subscription-boxxm {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            color: white;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            overflow: hidden;
+        }
+
+        .subscription-boxxm:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .subscription-boxxm:first-child {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .subscription-boxxm:last-child {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .popular-badgexm {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .subscription-boxxm::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .text-centerxm {
+            text-align: center;
+        }
+
+        .titlexm {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .descriptionxm {
+            font-size: 16px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .featuresxm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .feature-itemxm {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-iconxm {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-iconxm i {
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .feature-textxm {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .subscription-buttonxm {
+            width: 100%;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .subscription-buttonxm:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .subscription-buttonxm:active {
+            transform: translateY(0);
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .containerxm {
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .subscription-boxxm {
+                min-width: 280px;
+                max-width: 100%;
+                padding: 25px;
+            }
+
+            .titlexm {
+                font-size: 20px;
+            }
+
+            .descriptionxm {
+                font-size: 14px;
+            }
+
+            .feature-textxm {
+                font-size: 14px;
+            }
+
+            .subscription-buttonxm {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+         
+
+            .subscription-boxxm {
+                padding: 20px;
+                min-width: 250px;
+            }
+
+            .popular-badgexm {
+                font-size: 12px;
+                padding: 6px 15px;
+            }
+        }
+
+        /*End Dashboard Style*/
+
+
+
+
+
+        /*قوانین*/
+        .algolearno-rules-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+  padding: 32px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.algolearno-rules-shell {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 32px;
+  padding: 32px;
+  box-shadow:
+    0 20px 60px rgba(15, 23, 42, 0.08),
+    0 8px 24px rgba(59, 130, 246, 0.08);
+  overflow: hidden;
+}
+
+.algolearno-rules-bg {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(40px);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.algolearno-rules-bg-1 {
+  width: 220px;
+  height: 220px;
+  top: -60px;
+  right: -40px;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.algolearno-rules-bg-2 {
+  width: 180px;
+  height: 180px;
+  bottom: -40px;
+  left: -30px;
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.algolearno-rules-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.algolearno-rules-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  box-shadow: 0 10px 30px rgba(30, 58, 138, 0.18);
+  margin-bottom: 16px;
+}
+
+.algolearno-rules-title {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.4;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.algolearno-rules-subtitle {
+  max-width: 720px;
+  margin: 14px auto 0;
+  font-size: 15px;
+  line-height: 2;
+  color: #475569;
+}
+
+.algolearno-rules-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.algolearno-rule-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%);
+  border: 1px solid rgba(203, 213, 225, 0.7);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.algolearno-rule-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px rgba(30, 41, 59, 0.08);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+.algolearno-rule-icon {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.algolearno-rule-content {
+  flex: 1;
+}
+
+.algolearno-rule-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.algolearno-rule-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 2;
+  color: #475569;
+}
+
+.algolearno-rules-note {
+  position: relative;
+  z-index: 2;
+  margin-top: 28px;
+  border-radius: 24px;
+  padding: 22px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.algolearno-rules-note-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.algolearno-rules-note-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.algolearno-rules-actions {
+  position: relative;
+  z-index: 2;
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.algolearno-rules-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  transition: all 0.25s ease;
+}
+
+.algolearno-rules-btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(79, 70, 229, 0.22);
+}
+
+.algolearno-rules-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(79, 70, 229, 0.28);
+}
+
+.algolearno-rules-btn-secondary {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(203, 213, 225, 0.9);
+}
+
+.algolearno-rules-btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+@media (max-width: 768px) {
+  .algolearno-rules-page {
+    padding: 16px;
+  }
+
+  .algolearno-rules-shell {
+    padding: 22px 18px;
+    border-radius: 26px;
+  }
+
+  .algolearno-rules-title {
+    font-size: 26px;
+  }
+
+  .algolearno-rules-subtitle {
+    font-size: 14px;
+  }
+
+  .algolearno-rule-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .algolearno-rule-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 16px;
+  }
+
+  .algolearno-rule-title {
+    font-size: 16px;
+  }
+
+  .algolearno-rule-text {
+    font-size: 13px;
+  }
+
+  .algolearno-rules-actions {
+    flex-direction: column;
+  }
+
+  .algolearno-rules-btn {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
